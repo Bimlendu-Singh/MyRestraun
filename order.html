@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bheem's Restaurant</title>
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="image/apple-touch-icon.png" />
+
+    <!-- Link of font family included -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat&family=Foldit:wght@300&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar Section Starts Here -->
+    <section class="Navbar">
+      <div class="container navbar-container">
+        <div class="logo">
+          <img
+            class="responsive-img"
+            src="image/logo/logo 15.png"
+            alt="Restaurant Logo"
+          />
+        </div>
+
+        <div class="menu text-allign-center">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="foods.html">Foods</a></li>
+            <li><a href="categories.html">Categories</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+    </section>
+    <!-- Navbar Section Ends Here -->
+
+    <!-- fOOD sEARCH Section Starts Here -->
+    <section class="food-search">
+      <div class="container">
+        <h2 class="text-allign-center text-white">
+          Fill this form to confirm your order.
+        </h2>
+
+        <form action="#" class="order">
+          <fieldset>
+            <legend class="text-yellow">Selected Food</legend>
+
+            <div class="food-menu-img">
+              <img
+                src="./image/menu-pizza.jpg"
+                alt="Veg Hawain Pizza"
+                class="img-responsive img-curve"
+              />
+            </div>
+
+            <div class="food-menu-desc">
+              <h3 class="text-yellow">Food Title</h3>
+              <p class="food-price text-yellowgreen">$2.3</p>
+
+              <div class="order-label text-yellowgreen">Quantity</div>
+              <input
+                type="number"
+                name="qty"
+                class="input-responsive"
+                value="1"
+                required
+              />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend class="text-yellowgreen">Delivery Details</legend>
+            <div class="order-label text-yellow">Full Name</div>
+            <input
+              type="text"
+              name="full-name"
+              placeholder="E.g. Bheem Singh"
+              class="input-responsive"
+              required
+            />
+
+            <div class="order-label text-yellow">Phone Number</div>
+            <input
+              type="tel"
+              name="contact"
+              placeholder="E.g. 9843xxxxxx"
+              class="input-responsive"
+              required
+            />
+
+            <div class="order-label text-yellow">Email</div>
+            <input
+              type="email"
+              name="email"
+              placeholder="E.g. hi@bheemsingh.com"
+              class="input-responsive"
+              required
+            />
+
+            <div class="order-label text-yellow">Address</div>
+            <textarea
+              name="address"
+              rows="10"
+              placeholder="E.g. Street, City, Country"
+              class="input-responsive"
+              required
+            ></textarea>
+
+            <input
+              style="margin: auto 42%; margin-bottom: 3%"
+              type="submit"
+              name="submit"
+              value="Confirm Order"
+              class="btn btn-primary"
+            />
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <!-- fOOD sEARCH Section Ends Here -->
+
+    <!-- Social Media Section Starts Here -->
+    <section class="social text-allign-center">
+      <div class="container">
+        <ul>
+          <li>
+            <a href="http://www.facebook.com"
+              ><img src="./image/fbicon.png" alt="Facebook"
+            /></a>
+          </li>
+          <li>
+            <a href="http://www.instagram.com"
+              ><img src="./image/instaicon.png" alt="Instagram"
+            /></a>
+          </li>
+          <li>
+            <a href="http://www.twitter.com"
+              ><img src="./image/twittericon.gif" alt="Twitter"
+            /></a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <!-- Social Media Section Ends Here -->
+
+    <!-- Footer Section Starts Here -->
+    <section class="Footer">
+      <div class="container text-allign-center">
+        <p>All rights reserved. Designed By <a href="">Bheem Singh</a></p>
+      </div>
+    </section>
+    <!-- Footer Section Ends Here -->
+  </body>
+</html>

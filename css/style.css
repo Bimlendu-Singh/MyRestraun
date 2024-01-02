@@ -1,0 +1,462 @@
+/* 
+  Author : Bheem Singh
+  Theme : Restaurant Online Food Order System
+  Version: 1.0
+*/
+
+/* Css for all */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Caveat", cursive;
+  font-family: "Foldit", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  /* border: 2px solid blue; */
+  width: 99%;
+  margin: 0 auto;
+  padding: 1%;
+}
+
+/* Css for alligning the text in center */
+.text-allign-center {
+  text-align: center;
+}
+
+.text-allign-right {
+  text-align: right;
+}
+/* Css to color text white */
+.text-white {
+  color: white;
+}
+
+.text-yellow {
+  color: yellow;
+}
+
+.text-yellowgreen {
+  color: yellowgreen;
+}
+
+/* Stylel for responsive image */
+.img-responsive {
+  width: 100%;
+}
+
+/* Styling image as curve image */
+.img-curve {
+  border-radius: 15px;
+}
+
+/* css for fixing of overflow in div but currently not working*/
+.clearfix {
+  clear: both;
+  display: none;
+}
+
+/* css for fixing of overflow in div */
+.overflow {
+  overflow: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+/* css for h2 */
+h2 {
+  font-size: 1.3rem;
+  color: rgb(12, 43, 43);
+}
+
+/* ****************************** Navbar css starts here ********************************** */
+
+.navbar-container {
+  background-color: rgb(35, 35, 54);
+  border-radius: 5px;
+  overflow: auto;
+  padding: 0;
+  width: 100%;
+  margin: 0 0 2% 0;
+}
+
+.logo {
+  float: left;
+  /* border: 1px solid red; */
+  max-width: 8%;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-left: 20px;
+  transition: transform 0.2s; /* Animation for zoom on hover */
+}
+
+/* Zoom on hover animation */
+.logo img:hover {
+  transform: scale(1.3);
+}
+
+.responsive-img {
+  border-radius: 50%;
+  height: 80px;
+  width: 100%;
+}
+
+/* So menu item can  match the height of logo */
+.menu {
+  line-height: 80px;
+  /* margin-right: 200px; */
+}
+/* It will remove the black dot line from the ul */
+.menu ul {
+  list-style-type: none;
+}
+
+/* Css between home about foods  */
+.menu ul li {
+  display: inline;
+  padding: 2%;
+  font-weight: bold;
+}
+
+.menu ul li a {
+  color: white;
+}
+
+.menu ul li a:hover {
+  color: rgb(245, 242, 45);
+  font-size: 18px;
+}
+
+/* ***************************** Navbar css ends here ************************************************ */
+
+/* ***************************** Food-Search css starts here ************************************************ */
+
+/* Css for food search class of 'search section' in which background image are added  */
+.food-search {
+  background-image: url(../image/bg\ 5.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 7%;
+  /* margin: 10px auto; */
+  /* border: none; */
+}
+
+/* Css for search box , where searching of food item will be done */
+.search-box {
+  width: 50%;
+  padding: 1%;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+}
+
+/* Css for submit button whose class named as 'btn' */
+.btn {
+  padding: 1%;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+/* Submit button coloring */
+.btn-primary {
+  background-color: rgb(18, 249, 122);
+}
+
+.btn:hover {
+  background-color: yellow;
+}
+
+/* ***************************** Food-Search css ends here ************************************************ */
+
+/* ***************************** Categories css starts here ************************************************ */
+
+.Categories {
+  padding: 1%;
+}
+
+/* Css for boxes in categories and floating them to get them inline */
+.box-3 {
+  /* border: 1px solid black; */
+  float: left;
+  width: 28%;
+  margin: 2%;
+}
+
+/* Float container and float text are used relatively to allign them properly  */
+.float-container {
+  position: relative;
+}
+/* Css for bottom text with image  */
+.float-text {
+  position: absolute;
+  bottom: 50px;
+  left: 42%;
+}
+
+/* All the css below on class image, middle, text, are for hovering effect on image */
+/* This is for transition of image on hovering */
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+  /* Belo css is for zoom transition animation */
+  -webkit-transition: all 0.3s ease-in-out;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* This css for keeping image in middle during hover */
+.middle {
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  border-radius: 25%;
+}
+
+/* This is to style text while hovering */
+.text {
+  background-color: #e4ee24;
+  color: rgb(79, 29, 29);
+  font-size: 16px;
+  padding: 16px 32px;
+}
+
+/* Hover css on categories boxes */
+.box-3:hover .image {
+  opacity: 0.3;
+  /* Below css is for zoom transtion while hover on the image */
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+.box-3:hover .middle {
+  opacity: 1;
+}
+
+/* ***************************** Categories css ends here ************************************************ */
+
+/* ***************************** Food-Menu css starts here ************************************************ */
+
+/* Css for food menu section and adding background color of that section */
+.food-menu {
+  background-color: rgb(10, 51, 87);
+  padding: 4%;
+}
+
+.food-menu-box {
+  border: 1px solid black;
+  width: 40%;
+  margin: 2%;
+  float: left;
+  background-color: white;
+  padding: 2%;
+  border-radius: 15px;
+}
+
+.food-menu-img {
+  width: 25%;
+  float: left;
+  /* Belo css is for zoom transition animation */
+  -webkit-transition: all 0.3s ease-in-out;
+  background-size: cover;
+  overflow: hidden;
+}
+
+/* This css is for zooming the image while hovering over the image of food menu */
+.food-menu-img:hover img {
+  -webkit-transform: scale(1.2, 1.2);
+  transform: scale(1.2, 1.2);
+  -webkit-transition: all 0.3s ease-in-out;
+}
+
+.food-menu-desc {
+  width: 60%;
+  margin-top: 2%;
+  margin-left: 35%;
+}
+
+.food-price {
+  font-size: 1rem;
+  margin: 2% 0;
+}
+
+.food-details {
+  font-size: 1rem;
+  color: gray;
+}
+/* ***************************** Food-Menu css ends here ************************************************ */
+
+/* ***************************** About css starts here ************************************************ */
+
+.about-section {
+  margin: 5% auto;
+  border-radius: 3px;
+  padding: 50px;
+  text-align: center;
+  background-color: rgb(10, 51, 87);
+  color: #000;
+}
+
+.about-img {
+  float: left;
+  width: 50%;
+  margin-right: 10px;
+  border-radius: 3%;
+}
+
+.about-para {
+  color: white;
+  font-size: 20px;
+  margin: 2% auto;
+  float: right;
+  width: 40%;
+  line-height: 2rem;
+  padding: 20% auto;
+  margin-right: 3%;
+}
+
+/* ***************************** About css ends here ************************************************ */
+
+/* ***************************** Order css starts here ************************************************ */
+
+.order {
+  width: 50%;
+  margin: 0 auto;
+}
+.input-responsive {
+  width: 96%;
+  padding: 1%;
+  margin-bottom: 3%;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+.order-label {
+  margin-bottom: 1%;
+  font-weight: bold;
+}
+
+/* ***************************** Order css ends here ************************************************ */
+
+/* ***************************** Social Media css starts here ************************************************ */
+
+.social ul {
+  list-style: none;
+}
+
+.social ul li {
+  display: inline;
+  padding: 1%;
+}
+
+/* ***************************** Social Media css ends here ************************************************ */
+
+/* ***************************** Css for Responiveness for mobile size or small screen starts ************************************************ */
+
+@media only screen and (max-width: 768px) {
+  .navbar-container {
+    margin: 0;
+  }
+  .logo {
+    max-width: 50%;
+    float: none;
+    margin: 0 auto;
+    /* border-radius: 0; */
+  }
+
+  .logo img {
+    height: 9rem;
+  }
+
+  .menu {
+    margin-bottom: 5%;
+    padding: 0;
+    line-height: 20px;
+  }
+
+  .menu ul {
+    text-align: center;
+    padding: 0;
+  }
+
+  menu ul li {
+    padding: 0 auto;
+  }
+
+  .food-search {
+    padding: 10%;
+    margin-top: 4%;
+  }
+
+  .food-search input[type="search"] {
+    width: 90%;
+    margin-bottom: 5%;
+    padding: 2%;
+  }
+
+  .btn {
+    width: 20%;
+    padding: 2%;
+  }
+
+  .Categories {
+    padding: 2% 0;
+  }
+
+  .box-3 {
+    width: 90%;
+    margin: 4% 4%;
+  }
+
+  .food-menu {
+    padding: 10%;
+  }
+
+  .food-menu h2 {
+    margin-bottom: 8%;
+  }
+
+  .food-menu-box {
+    width: 90%;
+    padding: 5%;
+    margin-bottom: 5%;
+  }
+
+  .about-section {
+    margin: 5% auto;
+  }
+  .about-img {
+    float: none;
+    width: 90%;
+    margin-bottom: 5%;
+  }
+
+  .about-para {
+    float: none;
+    text-align: center;
+    width: 100%;
+  }
+
+  .social {
+    padding: 5% 0;
+  }
+}
+
+/* ***************************** Css for Responiveness for mobile size or small screen ends ************************************************ */

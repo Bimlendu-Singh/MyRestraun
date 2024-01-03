@@ -12,6 +12,29 @@
 
 <body>
     
+<!-- Menu  Section Starts Here  -->
+<div class="menu text-allign-center">
+    <div class="wrapper">
+         <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Admin</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="#">Food</a></li>
+            <li><a href="#">Order</a></li>                    
+        </ul>
+    </div>
+</div>
+<!-- Menu  Section Ends Here  -->
+
+
+<!-- Menu content Section Starts Here  -->
+<div class="main-content">
+    <div class="wrapper">
+
+    </div>
+</div>
+<!-- Menu content Section Ends Here  -->
+
 
 
 

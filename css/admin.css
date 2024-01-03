@@ -23,6 +23,27 @@
   text-align: center;
 }
 
+/* It will remove the black dot line from the ul */
+.wrapper ul {
+  list-style-type: none;
+}
+
+/* Css between home about foods  */
+.wrapper ul li {
+  display: inline;
+  padding: 2%;
+  font-weight: bold;
+}
+
+.wrapper ul li a {
+  color: rgb(124, 24, 24);
+}
+
+.wrapper ul li a:hover {
+  color: rgb(245, 242, 45);
+  font-size: 18px;
+}
+
 /* Css for footer */
 .footer {
   background-color: blue;

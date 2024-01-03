@@ -1,7 +1,6 @@
-<html
+<html>
 <head>
-
-    <title>Document</title>
+    <title>MyRestraun -Home Page</title>
 </head>
 <body>
     

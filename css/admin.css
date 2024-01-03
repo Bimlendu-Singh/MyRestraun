@@ -19,13 +19,17 @@
 }
 
 .wrapper {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   padding: 1%;
   width: 80%;
   margin: 0 auto;
 }
 
 /***************** Css for Menu section starts here ****************************/
+
+.menu {
+  background-color: rgb(35, 35, 54);
+}
 
 /* It will remove the black dot line from the ul */
 .menu ul li {
@@ -40,13 +44,27 @@
 }
 
 .wrapper ul li a {
-  text-decoration: none;
-  color: rgb(124, 24, 24);
+  text-decoration: none; /* It will remove the underscore below the ul li of nav bar or menu section*/
+  color: rgb(255, 255, 255);
 }
 
 .wrapper ul li a:hover {
   color: rgb(245, 242, 45);
   font-size: 18px;
+}
+
+/***************** Css for main-content starts here ****************************/
+
+.main-content {
+  /* margin: 1% 0; */
+  background-color: aliceblue;
+}
+
+.col-4 {
+  width: 20%;
+  background-color: white;
+  margin: 1%;
+  padding: 2%;
 }
 
 /***************** Css for footer ****************************/

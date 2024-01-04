@@ -50,6 +50,40 @@ table tr td {
   padding: 1%;
 }
 
+/* Css for submit button whose class named as 'btn' */
+.btn {
+  padding: 1%;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}
+/* Submit button coloring */
+.btn-primary {
+  background-color: rgb(13, 44, 27);
+}
+
+.btn:hover {
+  background-color: yellow;
+}
+
+.button {
+  background-color: #370b83;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: yellow;
+  color: black;
+}
+
 /***************** Css for Menu section starts here ****************************/
 
 .menu {
@@ -110,3 +144,5 @@ table tr td {
 .footeranchor a {
   text-decoration: none;
 }
+
+/***************** Css for manage-admin starts here ****************************/

@@ -5,6 +5,12 @@
 <div class="main-content">
     <div class="wrapper overflow">
         <h2>Manage Admin</h2>
+        <br>
+
+        <!-- Button to Add Admin -->
+        <a class="button" href="">Add admin</a>
+        <br>
+        <br>
      
     <table class="tbl-width-full">
         <tr>

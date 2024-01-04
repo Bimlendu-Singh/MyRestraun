@@ -44,6 +44,8 @@
                 //Count Rows to Check whether we have data in database or not
                 $count = mysqli_num_rows($res); //Function to get all the rows in the database
 
+                $sn = 1; //Creat a variable and Assign the value
+
                 //Check the num of rows
                 if($count>0)
                 {
@@ -62,7 +64,7 @@
                         ?>
 
                          <tr>
-                                <td>1.</td>
+                                <td><?php echo $sn++; ?></td>
                                 <td><?php echo $full_name; ?></td>
                                 <td><?php echo $username; ?></td>
                                 <td>

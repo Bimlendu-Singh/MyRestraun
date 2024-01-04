@@ -5,6 +5,7 @@ session_start();
 
 // Create constants to store Non Repeating Values
 
+define('SITEURL', 'http://localhost/MyRestraun/');
 define('LOCALHOST','localhost');
 define('DB_USERNAME','root');
 define('DB_PASSWORD','');

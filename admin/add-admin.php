@@ -5,6 +5,16 @@
     <div class="wrapper overflow">
         <h2>Add Admin</h2>
 
+          <?php
+
+            if(isset($_SESSION['add']))  //Checking whether the session is set or not
+            {
+                echo $_SESSION['add'];     //Display the session message if set
+                unset($_SESSION['add']);  //Remove session message
+            }
+
+        ?>
+
         <br>
 
         <form action="" method="POST">
@@ -80,12 +90,22 @@ if(isset($_POST['submit']))
     if($res==TRUE)
     {
         //Data Inserted
-        echo "Data Inserted";
+        // echo "Data Inserted";
+
+        //Create a Session Variable to Display Message
+        $_SESSION['add'] = "Admin added successfully";
+        //Redirect Page to Manage Admin
+        header("location:".SITEURL.'admin/manage-admin.php');
     }
     else
     {
         //Failed to Insert Data
-        echo "Fail to Insert Data";
+        // echo "Fail to Insert Data";
+
+        //Create a Session Variable to Display Message
+        $_SESSION['add'] = "Failed to Add Admin";
+        //Redirect Page to Manage Admin
+        header("location:".SITEURL.'admin/manage-admin.php');
     }
 
     

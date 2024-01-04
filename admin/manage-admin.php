@@ -8,7 +8,7 @@
         <br>
 
         <!-- Button to Add Admin -->
-        <a class="button" href="">Add admin</a>
+        <a class="button" href="add-admin.php">Add admin</a>
         <br>
         <br>
      

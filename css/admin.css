@@ -36,8 +36,13 @@
   overflow: auto;
 }
 
+/* Css for setting table width  */
 .tbl-width-full {
   width: 100%;
+}
+
+.tbl-width-30 {
+  width: 30%;
 }
 
 table tr th {
@@ -109,6 +114,21 @@ table tr td {
 .button:hover {
   background-color: yellow;
   color: black;
+}
+
+/* Css for submit button */
+.submit {
+  background-color: #04aa6d; /* Green */
+  border: none;
+  color: white;
+  padding: 6px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 6px 0;
+  cursor: pointer;
+  border-radius: 6px;
 }
 
 /***************** Css for Menu section starts here ****************************/

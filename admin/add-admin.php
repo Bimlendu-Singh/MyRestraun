@@ -64,11 +64,13 @@ if(isset($_POST['submit']))
 
     //2) SQL Query to save the data into database
 
-    $sql = "INSERT INTO tbl_admin SET 
-        full_name='$full_name',
-        username='$username',
-        passowrd='$passowrd'
-    ";
+    // $sql = "INSERT INTO `tbl_admin` VALUE 
+    //     full_name='$full_name',
+    //     username='$username',
+    //     passowrd='$passowrd'
+    // ";
+
+    $sql = "INSERT INTO `tbl_admin` (`full_name`, `username`, `password`) VALUES ('$full_name', '$username', '$passowrd');";
 
     //3) Executing Query and saving the data into database
     $res = mysqli_query($conn, $sql) or die(mysqli_error());

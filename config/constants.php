@@ -1,5 +1,8 @@
 <?php
 
+//Start Session
+session_start();
+
 // Create constants to store Non Repeating Values
 
 define('LOCALHOST','localhost');

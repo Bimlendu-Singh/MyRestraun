@@ -70,7 +70,22 @@ if(isset($_POST['submit']))
         passowrd='$passowrd'
     ";
 
-    //3) Execute Query and save the data into database
+    //3) Executing Query and saving the data into database
+    $res = mysqli_query($conn, $sql) or die(mysqli_error());
+
+    //4) Check whether the (Query is Executed) data is inserted or not and display appropriate message
+
+    if($res==TRUE)
+    {
+        //Data Inserted
+        echo "Data Inserted";
+    }
+    else
+    {
+        //Failed to Insert Data
+        echo "Fail to Insert Data";
+    }
+
     
 }
 

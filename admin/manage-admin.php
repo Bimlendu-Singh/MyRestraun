@@ -35,8 +35,8 @@
             <td>Bheem Singh</td>
             <td>bheemsingh</td>
             <td>
-                Update Admin
-                Delete Admin
+            <a class="btn-primary" href="">Update Admin</a>
+            <a class="btn-secondary" href="">Delete Admin</a>
             </td>
         </tr>
         
@@ -45,8 +45,8 @@
             <td>Bheem Singh</td>
             <td>bheemsingh</td>
             <td>
-                Update Admin
-                Delete Admin
+            <a class="btn-primary" href="">Update Admin</a>
+            <a class="btn-secondary" href="">Delete Admin</a>
             </td>
         </tr>
     </table>

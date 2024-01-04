@@ -57,13 +57,40 @@ table tr td {
   font-size: 1rem;
   border-radius: 5px;
 }
+
 /* Submit button coloring */
 .btn-primary {
-  background-color: rgb(13, 44, 27);
+  background-color: #10f327;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 
-.btn:hover {
-  background-color: yellow;
+.btn-primary:hover {
+  background-color: rgb(32, 121, 83);
+}
+
+.btn-secondary {
+  background-color: rgb(252, 120, 5);
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #ab4d2e;
 }
 
 .button {

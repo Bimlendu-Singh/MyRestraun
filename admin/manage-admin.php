@@ -42,10 +42,10 @@
             if($res==TRUE)
             {
                 //Count Rows to Check whether we have data in database or not
-                $count - mysqli_num_rows($res); //Function to get all the rows in the database
+                $count = mysqli_num_rows($res); //Function to get all the rows in the database
 
                 //Check the num of rows
-                if($count>o)
+                if($count>0)
                 {
                     //we have data in database
                     while($rows=mysqli_fetch_assoc($res))
@@ -69,8 +69,9 @@
                                     <a class="btn-primary" href="">Update Admin</a>
                                     <a class="btn-secondary" href="">Delete Admin</a>
                                 </td>
-                        </tr>
+                         </tr>
 
+                    <?php    
                     }
                 }
                 else{

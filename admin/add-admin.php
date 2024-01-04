@@ -70,7 +70,8 @@ if(isset($_POST['submit']))
         passowrd='$passowrd'
     ";
 
-    echo $sql;
+    //3) Execute Query and save the data into database
+    
 }
 
 ?>

@@ -20,7 +20,7 @@
         // echo "Admin Deleted";
 
         // Create session variable to display message
-        $_SESSION['delete'] = "Admin Delete Successfully";
+        $_SESSION['delete'] = "<div class='success'> Admin Deleted Successfully </div>";
         // Redirect to Manage Admin Page
         header('location:'.SITEURL.'admin/manage-admin.php');
     }
@@ -29,7 +29,7 @@
         // Failed to Delete the Data
         // echo "Failed to Delete the Admin";
 
-        $_SESSION['delete'] = "Failed to Delete Admin, Try Again Later";
+        $_SESSION['delete'] = "<div class='failure'> Failed to Delete Admin, Try Again Later </div>";
         header('location:'.SITEURL.'admin/manage-admin.php');
 
     }

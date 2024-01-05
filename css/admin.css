@@ -131,6 +131,17 @@ table tr td {
   border-radius: 6px;
 }
 
+.success {
+  color: green;
+  width: 30%;
+}
+
+.failure {
+  color: red;
+  background-color: #370b83;
+  width: 30%;
+}
+
 /***************** Css for Menu section starts here ****************************/
 
 .menu {

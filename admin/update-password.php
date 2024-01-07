@@ -41,4 +41,61 @@
     </div>
 </div>
 
+<?php
+
+//Check whether the submit button is clicked or not
+
+if(isset($_POST['submit']))
+{
+    //Button clicked
+    //echo "Button clicked";
+
+    //1) Get the data from the form
+    $id = $_POST['id'];
+    $current_password = md5($_POST['current_password']);
+    $new_password = md5($_POST['new_password']);
+    $confirm_password = md5($_POST['confirm_password']);
+
+    // Check whether the user with current ID and Current Password E
+    $sq1 = "SELECT * FROM tbl_admin WHERE id=$id AND password='$current_password'";
+
+    //Execute the Query
+    $res = mysqli_query($conn, $sql);
+
+    if($res==TRUE)
+    {
+
+        //CHeck whether data is available or not
+        $count = mysqli_num_rows($res);
+
+        if($count==1)
+        {
+            //User Exists and Password Can be CHanged
+            //echo "User Found";
+
+            //Check whether the new password and confirm match or not
+            if ($new_password==$confirm_password)
+            {
+                //Update the Password
+            }
+            else
+            {
+            //REdirec
+            }
+        }    
+        else
+        {
+            //User Does not Exist Set Message and REdirect
+            $_SESSION['user-not-found'] = "<div class='failure'>User Not Found. </div>";
+            /Redirect the User
+            header ('location: ' .SITEURL. admin/manage-admin.php');
+        }
+    }
+
+    
+}
+
+?>
+
+
 <?php include('partials/footer.php') ?>

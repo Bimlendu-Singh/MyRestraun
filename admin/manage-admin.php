@@ -40,6 +40,12 @@
                 unset($_SESSION['pwd-not-match']);  
             }
 
+            if(isset($_SESSION['change-pwd']))
+            {
+                echo $_SESSION['change-pwd'];     //Displaying Changed password or not message
+                unset($_SESSION['change-pwd']);  
+            }
+
         ?>
         <br>
         <br>

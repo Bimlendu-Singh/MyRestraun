@@ -34,6 +34,12 @@
                 unset($_SESSION['user-not-found']);  
             }
 
+            if(isset($_SESSION['pwd-not-match']))
+            {
+                echo $_SESSION['pwd-not-match'];     //Displaying Password Match or not Match
+                unset($_SESSION['pwd-not-match']);  
+            }
+
         ?>
         <br>
         <br>

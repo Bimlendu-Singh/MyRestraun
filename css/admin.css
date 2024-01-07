@@ -64,6 +64,23 @@ table tr td {
 }
 
 /* Submit button coloring */
+.btns {
+  background-color: #7a10f3;
+  border: none;
+  color: white;
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btns:hover {
+  background-color: #ab4d2e;
+}
+
 .btn-primary {
   background-color: #10f327;
   border: none;

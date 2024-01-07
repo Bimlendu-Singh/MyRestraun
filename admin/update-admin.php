@@ -6,6 +6,35 @@
 
         <br> <br>
 
+        <?php
+
+            // 1. Get the ID of selected Admin
+            $id=$_GET['id'];
+
+            // 2. Create SQL Query to
+            $sql = "SELECT * FROM tbl_admin";
+
+            //Execute the Query
+            $res = "mysqli_query($conn, $sql)";
+
+            //Check whether the query is executed or not
+            if(res==true)
+            {
+                // Check whether the data is available or not
+                $count = mysqli_num_rows($res);
+                // check whether we have admin data or not
+                if($count==1)
+                {
+                    // Get the Deatils
+                    echo "Admin Available";
+                }
+                else{
+                    // Redirect to Admin Page
+                    header('location:'.SITEURL.'admin/manage-admin.php):
+                }
+            }
+        ?>
+
         <form action="" method="POST">
 
             <table class="tbl-width-30">

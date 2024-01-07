@@ -6,19 +6,23 @@
 
         <br> <br>
 
+               
+
+        </form>
+
         <?php
 
             // 1. Get the ID of selected Admin
             $id=$_GET['id'];
 
             // 2. Create SQL Query to
-            $sql = "SELECT * FROM tbl_admin";
+            $sql = "SELECT * FROM tbl_admin WHERE id = $id";
 
             //Execute the Query
-            $res = "mysqli_query($conn, $sql)";
+            $res = mysqli_query($conn, $sql);
 
             //Check whether the query is executed or not
-            if(res==true)
+            if($res==true)
             {
                 // Check whether the data is available or not
                 $count = mysqli_num_rows($res);
@@ -26,14 +30,23 @@
                 if($count==1)
                 {
                     // Get the Deatils
-                    echo "Admin Available";
+                    // echo "Admin Available";
+                    $row = mysqli_fetch_assoc($res);
+
+                    $full_name = $row['full_name'];
+                    $username = $row['username'];
                 }
-                else{
+                else
+                {
                     // Redirect to Admin Page
-                    header('location:'.SITEURL.'admin/manage-admin.php):
+                    header('location:'.SITEURL.'admin/manage-admin.php');
                 }
             }
         ?>
+
+        
+
+        
 
         <form action="" method="POST">
 
@@ -41,14 +54,14 @@
                 <tr>
                     <td>Full Name: </td>
                     <td>
-                        <input type="text" name="full_name" value="">
+                        <input type="text" name="full_name" value="<?php echo $full_name; ?>">
                     </td>
                 </tr>
 
                 <tr>
                     <td>Username: </td>
                     <td>
-                        <input type="text" name="username" value="">
+                        <input type="text" name="username" value="<?php echo $username; ?>">
                     </td>
                 </tr>
 

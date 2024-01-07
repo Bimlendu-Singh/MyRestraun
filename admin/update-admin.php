@@ -87,22 +87,25 @@
             //Get all the values from form to update
             $id = $_POST['id'];
             $full_name = $_POST['full_name'];
-            $username = $_POST['usernane'];
+            $username = $_POST['username'];
 
-            //Create a SQL Query to Update Admin
-            // $sql = "UPDATE tbl_admin SET
-            // full_name = '$full_name',
-            // username = '$username'
-            // WHERE id = '$id'
-            // ";
 
-            $sql = "UPDATE `tbl_admin` SET (`full_name`, `username`) 
-            VALUES ('$full_name', '$username');";
+            // Create a SQL Query to Update Admin
+            $sql = "UPDATE tbl_admin SET
+            full_name = '$full_name',
+            username = '$username'
+            WHERE id = '$id'
+            ";
+
+            // $sql = "UPDATE 'tbl_admin' SET (`full_name`, `username`) 
+            // VALUES ('$full_name', '$username'); WHERE id = '$id'";
+
+            // 'UPDATE tutorials_tbl set tutorial_title = "Learning Java" where tutorial_id = 4'
 
             // Execute the Query
-            $res = mysqli_query($conn,$sql);
+            $res = mysqli_query($conn, $sql);
 
-            //Check whether the query executed successfully or not
+            // Check whether the query executed successfully or not
             if($res==true)
             {
                 //Query Executed and Admin Updated

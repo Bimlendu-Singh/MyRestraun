@@ -74,7 +74,7 @@
                                 <td><?php echo $full_name; ?></td>
                                 <td><?php echo $username; ?></td>
                                 <td>
-                                    <a class="btn-primary" href="">Update Admin</a>
+                                    <a class="btn-primary" href="<?php echo SITEURL; ?>admin/update-admin.php?id=<?php echo $id; ?>">Update Admin</a>
                                     <a class="btn-secondary" href="<?php echo SITEURL; ?>admin/delete-admin.php?id=<?php echo $id; ?>">Delete Admin</a>
                                 </td>
                          </tr>

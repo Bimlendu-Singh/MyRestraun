@@ -22,6 +22,12 @@
                 unset($_SESSION['delete']);  
             }
 
+            if(isset($_SESSION['update']))
+            {
+                echo $_SESSION['update'];     //Displaying Update Message
+                unset($_SESSION['update']);  
+            }
+
         ?>
         <br>
         <br>

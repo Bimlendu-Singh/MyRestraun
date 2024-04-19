@@ -57,12 +57,12 @@ if(isset($_POST['submit']))
     $confirm_password = md5($_POST['confirm_password']);
 
     // Check whether the user with current ID and Current Password E
-    $sq1 = "SELECT * FROM tbl_admin WHERE id=$id AND password='$current_password'";
+    $sql = "SELECT * FROM tbl_admin WHERE id= $id AND password ='$current_password'";
 
     //Execute the Query
     $res = mysqli_query($conn, $sql);
 
-    if($res==TRUE)
+    if($res==true)
     {
 
         //CHeck whether data is available or not
@@ -74,42 +74,42 @@ if(isset($_POST['submit']))
             //echo "User Found";
 
             //Check whether the new password and confirm match or not
-            if ($new_password==$confirm_password)
-            {
-                //Update the Password
-                $sql2 = "UPDATE tbl_admin SET
-                    password= '$new_password'
-                    WHERE id=$id
-                ";
+            // if ($new_password==$confirm_password)
+            // {
+            //     //Update the Password
+            //     $sql2 = "UPDATE tbl_admin SET
+            //         password= '$new_password'
+            //         WHERE id=$id
+            //     ";
 
-                //Execute the Query
-                $res2 = mysqli_query($conn, $sq12);
+            //     //Execute the Query
+            //     $res2 = mysqli_query($conn, $sql2);
 
-                //CHeck whether the query executed or not
-                if($res2==true)
-                {
-                    //Display Succes Message
-                    //REdirect to Manage Admin Page with Success Message
-                    $_SESSION['change-pwd'] = "<div class='success'>Password Changed Successfully. </div>";
-                    //Redirect the User
-                    header("location:".SITEURL.'admin/manage-admin.php');
-                }
-                else
-                {
-                    //Display Error Message
-                    //REdirect to Manage Admin Page with Error Message
-                    $_SESSION['change-pwd'] = "<div class='failure'>User Not Found. </div>";
-                    //Redirect the User
-                    header("location:".SITEURL.'admin/manage-admin.php');
-                }
-            }
-            else
-            {
-                //Redirect to Manage Admin Page with Error Message
-                $_SESSION['pwd-not-match'] = "<div class='error'>Password Did not Match. </div>";
-                //Redirect the User
-                header("location:".SITEURL.'admin/manage-admin.php');
-            }
+            //     //CHeck whether the query executed or not
+            //     if($res2==true)
+            //     {
+            //         //Display Succes Message
+            //         //REdirect to Manage Admin Page with Success Message
+            //         $_SESSION['change-pwd'] = "<div class='success'>Password Changed Successfully. </div>";
+            //         //Redirect the User
+            //         header("location:".SITEURL.'admin/manage-admin.php');
+            //     }
+            //     else
+            //     {
+            //         //Display Error Message
+            //         //REdirect to Manage Admin Page with Error Message
+            //         $_SESSION['change-pwd'] = "<div class='failure'>User Not Found. </div>";
+            //         //Redirect the User
+            //         header("location:".SITEURL.'admin/manage-admin.php');
+            //     }
+            // }
+            // else
+            // {
+            //     //Redirect to Manage Admin Page with Error Message
+            //     $_SESSION['pwd-not-match'] = "<div class='error'>Password Did not Match. </div>";
+            //     //Redirect the User
+            //     header("location:".SITEURL.'admin/manage-admin.php');
+            // }
         }    
         else
         {

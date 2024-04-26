@@ -155,8 +155,15 @@ table tr td {
 
 .failure {
   color: red;
-  background-color: #370b83;
+  /* background-color: #370b83; */
   width: 30%;
+}
+
+/* To show messages in red */
+.error{
+  color: red;
+  width: 30%;
+  text-decoration-color: red;
 }
 
 /***************** Css for Menu section starts here ****************************/

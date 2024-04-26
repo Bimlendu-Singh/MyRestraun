@@ -57,13 +57,13 @@
             //Button clicked
             //echo "Button clicked";
         
-            //1) Get the data from the form
+            //1. Get the data from the form
             $id = $_POST['id'];
             $current_password = md5($_POST['current_password']);
             $new_password = md5($_POST['new_password']);
             $confirm_password = md5($_POST['confirm_password']);
         
-            // Check whether the user with current ID and Current Password E
+            //2. Check whether the user with current ID and Current Password Exist or not
             $sql = "SELECT * FROM tbl_admin WHERE id= $id AND password ='$current_password'";
         
             //Execute the Query
@@ -80,7 +80,7 @@
                     //User Exists and Password Can be CHanged
                     //echo "User Found";
                 
-                    //Check whether the new password and confirm match or not
+                    //3.Check whether the new password and confirm match or not
                     // if ($new_password==$confirm_password)
                     // {
                     //     //Update the Password
@@ -120,7 +120,7 @@
                 }    
                 else
                 {
-                    //User Does not Exist Set Message and REdirect
+                    //User Does not Exist Set Message and Redirect
                     $_SESSION['user-not-found'] = "<div class='failure'>User Not Found. </div>";
                     //Redirect the User
                     header("location:".SITEURL.'admin/manage-admin.php');

@@ -10,8 +10,24 @@
 
 <body>
     
-        <div class="login">
+        <div class="login text-allign-center">
             <h1>Login</h1>
+            <br><br>
+
+            <!-- Login form starts here -->
+            <form action="" method="POST">
+
+                Username: <br>
+                <input type="text" name="username" placeholder="Enter Username"><br><br>
+
+                Password: <br>
+                <input type="password" name="password" placeholder="Enter Password"><br><br>
+
+                <input type="submit" name="submit" value="Login" >
+
+            </form>
+
+
 
             <p>Created By - <a href="#"></a>Bimlendu Singh</p>
         </div>

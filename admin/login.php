@@ -1,3 +1,5 @@
+<?php include('../config/constants.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +29,6 @@
                 <br><br>
 
             </form>
-
             <!-- Login form starts here -->
 
             <p>Created By - <a href="#"></a>Bimlendu Singh</p>
@@ -35,3 +36,24 @@
 
 </body>
 </html>
+
+<?php
+
+    // Check whether the sumbit button is clicked or not
+    if(isset($_POST['submit']))
+    {
+
+        // Process for Login
+        // 1. Get the data from Login form
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+
+        // 2. SQL to check whether the user with username or password exist or not
+        $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password = '$password'";
+
+        // 3. Execute the Query
+        $res = mysqli_query($conn, $sql);
+
+    }
+
+?>

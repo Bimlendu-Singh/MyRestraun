@@ -12,12 +12,21 @@
 
 <body>
     
-        <div class="login text-allign-center">
-            <h1>Login</h1>
+        <div class="login">
+            <h1 class="text-allign-center">Login</h1>
+            <br><br>
+
+            <?php
+                if(isset($_SESSION['login']))
+                {
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
+                }
+            ?>
             <br><br>
 
             <!-- Login form starts here -->
-            <form action="" method="POST">
+            <form action="" method="POST" class="text-allign-center">
 
                 Username: <br>
                 <input type="text" name="username" placeholder="Enter Username"><br><br>
@@ -31,7 +40,7 @@
             </form>
             <!-- Login form starts here -->
 
-            <p>Created By - <a href="#"></a>Bimlendu Singh</p>
+            <p class="text-allign-center">Created By - <a href="#"></a>Bimlendu Singh</p>
         </div>
 
 </body>

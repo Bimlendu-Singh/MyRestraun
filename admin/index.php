@@ -7,6 +7,16 @@
     <div class="wrapper overflow">
         <h2>Dashboard</h2>
 
+           <br>
+           <?php
+                if(isset($_SESSION['login']))
+                {
+                    echo $_SESSION['login'];
+                    unset($_SESSION['login']);
+                }
+            ?>
+            <br>
+
         <div class="col-4 text-allign-center">
 
             <h1>5</h1>

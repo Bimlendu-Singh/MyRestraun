@@ -55,7 +55,7 @@
         // Process for Login
         // 1. Get the data from Login form
         $username = $_POST['username'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
 
         // 2. SQL to check whether the user with username or password exist or not
         $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password = '$password'";
@@ -77,7 +77,7 @@
         {
 
             // User not available and Login Fail
-            $_SESSION['login'] = "<div class = 'error'> Username or Password did not match.</div> ";
+            $_SESSION['login'] = "<div class = 'errorlogin text-allign-center'> Username or Password did not match.</div> ";
             // Redirect to Home page/dashboard
             header('location:'.SITEURL.'admin/login.php');
 

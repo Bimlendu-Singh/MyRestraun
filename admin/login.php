@@ -54,6 +54,26 @@
         // 3. Execute the Query
         $res = mysqli_query($conn, $sql);
 
+        // 4. Count rows to check whether the user exists or not
+        $count = mysqli_num_rows($res);
+
+        if($count==1)
+        {
+            // User available and Login success
+            $_SESSION['login'] = "<div class = 'success'> Login Successful.</div> ";
+            // Redirect to Home page/dashboard
+            header('location:'.SITEURL.'admin/');
+        }
+        else
+        {
+
+            // User not available and Login Fail
+            $_SESSION['login'] = "<div class = 'error'> Username or Password did not match.</div> ";
+            // Redirect to Home page/dashboard
+            header('location:'.SITEURL.'admin/login.php');
+
+        }
+
     }
 
 ?>

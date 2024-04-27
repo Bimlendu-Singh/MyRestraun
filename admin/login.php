@@ -23,11 +23,12 @@
                 Password: <br>
                 <input type="password" name="password" placeholder="Enter Password"><br><br>
 
-                <input type="submit" name="submit" value="Login" >
+                <input type="submit" name="submit" value="Login" class="btn-primary">
+                <br><br>
 
             </form>
 
-
+            <!-- Login form starts here -->
 
             <p>Created By - <a href="#"></a>Bimlendu Singh</p>
         </div>

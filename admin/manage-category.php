@@ -15,15 +15,15 @@
     <table class="tbl-width-full">
         <tr>
             <th>S.N.</th>
-            <th>Full Name</th>
-            <th>Username</th>
-            <th>Ations</th>
+            <th>Category</th>
+            <th>Food Name</th>
+            <th>Actions</th>
         </tr>
 
         <tr>
             <td>1.</td>
-            <td>Bheem Singh</td>
-            <td>bheemsingh</td>
+            <td>Italian</td>
+            <td>Pasta</td>
             <td>
             <a class="btn-primary" href="">Update Admin</a>
             <a class="btn-secondary" href="">Delete Admin</a>
@@ -32,8 +32,8 @@
 
         <tr>
             <td>1.</td>
-            <td>Bheem Singh</td>
-            <td>bheemsingh</td>
+            <td>Chinese</td>
+            <td>Hakka Noodles</td>
             <td>
             <a class="btn-primary" href="">Update Admin</a>
             <a class="btn-secondary" href="">Delete Admin</a>
@@ -42,8 +42,8 @@
         
         <tr>
             <td>1.</td>
-            <td>Bheem Singh</td>
-            <td>bheemsingh</td>
+            <td>Indian</td>
+            <td>Dosa</td>
             <td>
             <a class="btn-primary" href="">Update Admin</a>
             <a class="btn-secondary" href="">Delete Admin</a>

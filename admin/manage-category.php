@@ -25,28 +25,28 @@
             <td>Italian</td>
             <td>Pasta</td>
             <td>
-            <a class="btn-primary" href="">Update Admin</a>
-            <a class="btn-secondary" href="">Delete Admin</a>
+            <a class="btn-primary" href="">Update Category</a>
+            <a class="btn-secondary" href="">Delete Category</a>
             </td>
         </tr>
 
         <tr>
-            <td>1.</td>
+            <td>2.</td>
             <td>Chinese</td>
             <td>Hakka Noodles</td>
             <td>
-            <a class="btn-primary" href="">Update Admin</a>
-            <a class="btn-secondary" href="">Delete Admin</a>
+            <a class="btn-primary" href="">Update Category</a>
+            <a class="btn-secondary" href="">Delete Category</a>
             </td>
         </tr>
         
         <tr>
-            <td>1.</td>
+            <td>3.</td>
             <td>Indian</td>
             <td>Dosa</td>
             <td>
-            <a class="btn-primary" href="">Update Admin</a>
-            <a class="btn-secondary" href="">Delete Admin</a>
+            <a class="btn-primary" href="">Update Category</a>
+            <a class="btn-secondary" href="">Delete Category</a>
             </td>
         </tr>
     </table>

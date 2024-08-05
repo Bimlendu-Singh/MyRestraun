@@ -81,7 +81,7 @@
                              //echo"clicked";            
             
                             //1.Get Value from form
-                             $title = $_POST['title'];
+                             $title =$_POST['title'];
             
                               //For radio input, we need to check wheather the button is selected or not
                               if(isset($_POST['featured']))

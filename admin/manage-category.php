@@ -99,7 +99,7 @@
                         <td><?php echo $active; ?></td>
                         <td>
                             <a href="#" class="btn-primary">Update Category</a>
-                            <a href="#" class="btn-secondary">Delete Category</a>
+                            <a href="<?php echo SITEURL; ?>admin/delete-category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-secondary">Delete Category</a>
                         </td>
                     </tr>
 

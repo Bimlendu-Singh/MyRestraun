@@ -1,6 +1,6 @@
 <?php include ('partials/menu.php'); ?>
 
-<div class="main">
+<div class="main-content">
     <div class="wrapper overflow">
         <h1>Manage Category</h1>
 

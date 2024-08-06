@@ -1,7 +1,7 @@
 <?php include('partials/menu.php'); ?>
 
 <div class="main-content">
-    <div class="wrapper">
+    <div class="wrapper overflow">
         <h1>Manage Food</h1>
         <br><br>
 
@@ -32,12 +32,12 @@
         }
         ?>
 
-        <br><br>
+        <br>
         <!-- Button to Add Food -->
         <a href="<?php echo SITEURL; ?>admin/add-food.php" class="btn-primary">Add Food</a>
         <br><br><br>
 
-        <table class="tbl-full">
+        <table class="tbl-width-full">
             <tr>
                 <th>S.N.</th>
                 <th>Title</th>
@@ -102,8 +102,8 @@
                         <td><?php echo $featured; ?></td>
                         <td><?php echo $active; ?></td>
                         <td>
-                            <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-secondary">Update Food</a>
-                            <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Food</a>
+                            <a href="<?php echo SITEURL; ?>admin/update-food.php?id=<?php echo $id; ?>" class="btn-primary">Update Food</a>
+                            <a href="<?php echo SITEURL; ?>admin/delete-food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-secondary">Delete Food</a>
                         </td>
                     </tr>
                     <?php

@@ -1,57 +1,131 @@
-<?php include('partials/menu.php') ?>
 
-<!-- Main content Section Starts Here  -->
-<div class="main-content">
+
+<!-- using php repeating part // dry pattern // not repeating  same code-->
+
+<?php include ('partials/menu.php') ?>
+
+<div class="main">
     <div class="wrapper overflow">
-        <h2>Manage Category</h2>
-     
+        <h1>Manage category</h1>
+
         <br>
+
+        <?php
+
+        if (isset($_SESSION['add'])) {
+            echo $_SESSION['add'];
+            unset($_SESSION['add']);
+        }
+
+        if (isset($_SESSION['upload'])) {
+            echo $_SESSION['upload'];
+            unset($_SESSION['upload']);
+        }
+
+        ?>
+
+        <br><br>
 
         <!-- Button to Add Admin -->
-        <a class="button" href="<?php echo SITEURL; ?>admin/add-category.php">Add Category</a>
+        <a href="<?php echo SITEURL; ?>admin/add-category.php" class="btn-primary">Add Category</a>
+
         <br>
         <br>
-     
-    <table class="tbl-width-full">
-        <tr>
-            <th>S.N.</th>
-            <th>Category</th>
-            <th>Food Name</th>
-            <th>Actions</th>
-        </tr>
+        <table class="tbl-width-full">
+            <tr>
+                <!-- table row -->
 
-        <tr>
-            <td>1.</td>
-            <td>Italian</td>
-            <td>Pasta</td>
-            <td>
-            <a class="btn-primary" href="">Update Category</a>
-            <a class="btn-secondary" href="">Delete Category</a>
-            </td>
-        </tr>
+                <th>S.N.</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Featured</th>
+                <th>Active</th>
+                <th>Actions</th>
+            </tr>
 
-        <tr>
-            <td>2.</td>
-            <td>Chinese</td>
-            <td>Hakka Noodles</td>
-            <td>
-            <a class="btn-primary" href="">Update Category</a>
-            <a class="btn-secondary" href="">Delete Category</a>
-            </td>
-        </tr>
-        
-        <tr>
-            <td>3.</td>
-            <td>Indian</td>
-            <td>Dosa</td>
-            <td>
-            <a class="btn-primary" href="">Update Category</a>
-            <a class="btn-secondary" href="">Delete Category</a>
-            </td>
-        </tr>
-    </table>
+            <?php
+
+            //Query to Get all CAtegories from Database
+            $sql = "SELECT * FROM tbl_category";
+
+
+            //Execute Query
+            $res = mysqli_query($conn, $sql);
+
+            //Count Rows
+            $count = mysqli_num_rows($res);
+
+            //Create Serial Number Variable and assign value as 1
+            $sn = 1;
+
+            //Check whether we have data in database or not
+            if ($count > 0) {
+                //We have data in database
+                //get the data and display
+                while ($row = mysqli_fetch_assoc($res)) {
+                    $id = $row['id'];
+                    $title = $row['title'];
+                    $image_name = $row['image_name'];
+                    $featured = $row['featured'];
+                    $active = $row['active'];
+
+                    ?>
+                    <tr>
+                        <!-- table data -->
+                        <td><?php echo $sn++; ?>. </td>
+                        <td><?php echo $title; ?></td>
+
+
+                        <td>
+
+                            <?php
+                            //Chcek whether image name is available or not
+                            if ($image_name != "") {
+                                //Display the Image
+                                ?>
+
+                                <img src="<?php echo SITEURL; ?>image/category/<?php echo $image_name; ?>" width="100px">
+
+                                <?php
+                            } else {
+                                //DIsplay the MEssage
+                                echo "<div class='error'>Image not Added.</div>";
+                            }
+                            ?>
+
+                        </td>
+
+                        <td><?php echo $featured; ?></td>
+                        <td><?php echo $active; ?></td>
+                        <td>
+                            <a href="#" class="btn-secondary">Update Category</a>
+                            <a href="#" class="btn-danger">Delete Category</a>
+                        </td>
+                    </tr>
+
+                    <?php
+
+                }
+            } else {
+                //WE do not have data
+                //We'll display the message inside table
+                ?>
+
+                <tr>
+                    <td colspan="6">
+                        <div class="error">No Category Added.</div>
+                    </td>
+                </tr>
+
+                <?php
+            }
+
+            ?>
+        </table>
+
     </div>
 </div>
-<!-- Main content Section Ends Here  -->
 
-<?php include('partials/footer.php') ?>
+<!-- using php repeating part // dry pattern // not repeating  same code-->
+
+<?php include ('partials/footer.php'); ?>

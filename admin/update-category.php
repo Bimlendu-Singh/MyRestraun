@@ -120,7 +120,10 @@
 
                         // Auto Rename our Image
                         // Get the Extension of our image (jpg, png, gif, etc) e.g. "specialfood1.jpg"
-                        $ext = end(explode('.', $image_name));
+                        // $ext = end(explode('.', $image_name));
+                        $temp = explode('.', $image_name);  // Store the result of explode() in a variable
+                        $ext = end($temp);    // Use end() on the array
+
 
                         // Rename the Image
                         $image_name = "Food_Category_".rand(000, 999).'.'.$ext; // e.g. Food_Category_834.jpg

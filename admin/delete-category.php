@@ -31,6 +31,30 @@
                 die();
             }
         }
+
+        // Delete Data from database
+        // SQL Query to Delete Data from Database
+        $sql = "DELETE FROM tbl_category WHERE id=$id";
+
+        // Execute the Query
+        $res = mysqli_query($conn, $sql);
+
+        // Check whether the data is deleted from databse or not
+        if($res==true)
+        {
+            // Set success message and redirect
+            $_SESSION['delete'] = "<div class='success'>Category Deleted Successfully.</div>";
+            // Redirect to Manage Category Page
+            header('location:'.SITEURL.'admin/manage-category.php');
+        }
+        else{
+            // Set fail message and redirect
+            $_SESSION['delete'] = "<div class='error'>Failed to Delete Category.</div>";
+            // Redirect to Manage Category Page
+            header('location:'.SITEURL.'admin/manage-category.php');
+        }
+
+
     }
     else
     {

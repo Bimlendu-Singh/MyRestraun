@@ -98,8 +98,8 @@
                         <td><?php echo $featured; ?></td>
                         <td><?php echo $active; ?></td>
                         <td>
-                            <a href="#" class="btn-secondary">Update Category</a>
-                            <a href="#" class="btn-danger">Delete Category</a>
+                            <a href="#" class="btn-primary">Update Category</a>
+                            <a href="#" class="btn-secondary">Delete Category</a>
                         </td>
                     </tr>
 

@@ -1,3 +1,5 @@
+<?php include('config/constants.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,11 +29,11 @@
             
             <div class="menu text-allign-center" >
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="foods.php">Foods</a></li>
-                    <li><a href="categories.php">Categories</a></li>
-                    <li><a href="about.php">About</a></li>
-                    <li><a href="contact.php">Contact</a></li>                    
+                    <li><a href="<?php echo SITEURL; ?>">Home</a></li>
+                    <li><a href="<?php echo SITEURL; ?>foods.php">Foods</a></li>
+                    <li><a href="<?php echo SITEURL; ?>categories.php">Categories</a></li>
+                    <li><a href="<?php echo SITEURL; ?>about.php">About</a></li>
+                    <li><a href="<?php echo SITEURL; ?>contact.php">Contact</a></li>                    
                 </ul>
             </div>
 

@@ -1,94 +1,68 @@
-<?php include('partials-front/menu.php') ?>
+<?php include ('partials-front/menu.php') ?>
 
 
 
-    <!-- Categories Section Starts Here -->
-    <section class="Categories ">
-        <div class="container overflow">
-            <h2 class="text-allign-center">Categories</h2> 
+<!-- Categories Section Starts Here -->
+<section class="Categories ">
+    <div class="container overflow">
+        <h2 class="text-allign-center">Categories</h2>
 
-            <a href="">
-            <!-- Float container and float text classes are taken to allign text relatively in middle acc. to img -->
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/pizza.jpg" alt="Pizza">
-                <h3 class="text-allign-center float-text text-white " >Pizza</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Pizza</div>
-            </div>
-            </a>
+        <?php
 
-            <a href="">
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/burger.jpg" alt="Burger">
-                <h3 class="text-allign-center float-text text-white " >Burger</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Burger</div>
-            </div>
-            </a>
+        //Display all the cateories that are active
+    //Sql Query
+        $sql = "SELECT * FROM tbl_category WHERE active='Yes'";
 
-            <a href="">
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/momo.jpg" alt="Momo">
-                <h3 class="text-allign-center float-text text-white " >Momo</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Momo</div>
-            </div>
-            </a>
+        //Execute the Query
+        $res = mysqli_query($conn, $sql);
 
-            <div class="clearfix"></div>
-        </div>
+        //Count Rows
+        $count = mysqli_num_rows($res);
 
-        <!-- Repeating div here  -->
+        //CHeck whether categories available or not
+        if ($count > 0) {
+            //CAtegories Available
+            while ($row = mysqli_fetch_assoc($res)) {
+                //Get the Values
+                $id = $row['id'];
+                $title = $row['title'];
+                $image_name = $row['image_name'];
+                ?>
 
-        <div class="container overflow">
-            <!-- <h2 class="text-allign-center">Categories</h2>  -->
-
-            <a href="">
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/burger.jpg" alt="Burger">
-                <h3 class="text-allign-center float-text text-white " >Burger</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Burger</div>
-            </div>
-            </a>
-
-            <a href="">
-            <!-- Float container and float text classes are taken to allign text relatively in middle acc. to img -->
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/pizza.jpg" alt="Pizza">
-                <h3 class="text-allign-center float-text text-white " >Pizza</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Pizza</div>
-            </div>
-            </a>
-
-            <a href="">
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/momo.jpg" alt="Momo">
-                <h3 class="text-allign-center float-text text-white " >Momo</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Momo</div>
-            </div>
-            </a>
-
-            <div class="clearfix"></div>
-        </div>
-
-     </section class="Categories">
-    <!-- Categories Section Ends Here -->
+                <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
+                    <div class="box-3 float-container">
+                        <?php
+                        if ($image_name == "") {
+                            //Image not Available
+                            echo "<div class='error'>Image not found.</div>";
+                        } else {
+                            //Image Available
+                            ?>
+                            <img src="<?php echo SITEURL; ?>image/category/<?php echo $image_name; ?>" alt="Pizza"
+                                class="img-responsive img-curve">
+                            <?php
+                        }
+                        ?>
 
 
-    <?php include('partials-front/footer.php') ?>
+                        <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                    </div>
+                </a>
 
+                <?php
+            }
+        } else {
+            //CAtegories Not Available
+            echo "<div class='error'>Category not found.</div>";
+        }
+
+        ?>
+
+        <div class="clearfix"></div>
+    </div>
+
+</section class="Categories">
+<!-- Categories Section Ends Here -->
+
+
+<?php include ('partials-front/footer.php') ?>

@@ -30,39 +30,57 @@
         <div class="container overflow">
             <h2 class="text-allign-center">Categories</h2> 
 
-            <a href="">
-            <!-- Float container and float text classes are taken to allign text relatively in middle acc. to img -->
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/pizza.jpg" alt="Pizza">
-                <h3 class="text-allign-center float-text text-white " >Pizza</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Pizza</div>
-            </div>
-            </a>
+            <?php 
+                //Create SQL Query to Display CAtegories from Database
+                $sql = "SELECT * FROM tbl_category WHERE active='Yes' AND featured='Yes' LIMIT 3";
+                //Execute the Query
+                $res = mysqli_query($conn, $sql);
+                //Count rows to check whether the category is available or not
+                $count = mysqli_num_rows($res);
 
-            <a href="">
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/burger.jpg" alt="Burger">
-                <h3 class="text-allign-center float-text text-white " >Burger</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Burger</div>
-            </div>
-            </a>
+                if($count>0)
+                {
+                    //CAtegories Available
+                    while($row=mysqli_fetch_assoc($res))
+                    {
+                        //Get the Values like id, title, image_name
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $image_name = $row['image_name'];
+                        ?>
+                        
+                        <a href="<?php echo SITEURL; ?>category-foods.php?category_id=<?php echo $id; ?>">
+                            <div class="box-3 float-container">
+                                <?php 
+                                    //Check whether Image is available or not
+                                    if($image_name=="")
+                                    {
+                                        //Display MEssage
+                                        echo "<div class='error'>Image not Available</div>";
+                                    }
+                                    else
+                                    {
+                                        //Image Available
+                                        ?>
+                                        <img src="<?php echo SITEURL; ?>image/category/<?php echo $image_name; ?>" alt="Pizza" class="img-responsive img-curve">
+                                        <?php
+                                    }
+                                ?>
+                                
 
-            <a href="">
-            <div class="box-3 float-container ">
-                <!-- 'img-responsive' class is used for image taking width 100%, and 'image curve' for curving the image -->
-                <!-- image class is used for hovering effect on image while hover -->
-                <img class="img-responsive img-curve image" src="./image/momo.jpg" alt="Momo">
-                <h3 class="text-allign-center float-text text-white " >Momo</h3>
-                <!-- middle class is for keeping text in middle while hovering -->
-                <div class="text middle">Momo</div>
-            </div>
-            </a>
+                                <h3 class="float-text text-white"><?php echo $title; ?></h3>
+                            </div>
+                        </a>
+
+                        <?php
+                    }
+                }
+                else
+                {
+                    //Categories not Available
+                    echo "<div class='error'>Category not Added.</div>";
+                }
+            ?>
 
             <div class="clearfix"></div>
         </div>

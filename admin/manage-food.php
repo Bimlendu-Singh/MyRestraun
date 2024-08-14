@@ -76,10 +76,22 @@
                     $active = $row['active'];
 
                     // Get category title from category ID
+
+                    // $sql2 = "SELECT title FROM tbl_category WHERE id=$category_id";
+                    // $res2 = mysqli_query($conn, $sql2);
+                    // $row2 = mysqli_fetch_assoc($res2);
+                    // $category_title = $row2['title'];
+
                     $sql2 = "SELECT title FROM tbl_category WHERE id=$category_id";
                     $res2 = mysqli_query($conn, $sql2);
-                    $row2 = mysqli_fetch_assoc($res2);
-                    $category_title = $row2['title'];
+                
+                    if ($res2 && mysqli_num_rows($res2) > 0) {
+                        $row2 = mysqli_fetch_assoc($res2);
+                        $category_title = $row2['title'];
+                    } else {
+                        $category_title = "Unknown Category"; // Or handle this case appropriately
+                    }
+
 
                     ?>
                     <tr>

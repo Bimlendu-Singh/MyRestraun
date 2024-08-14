@@ -117,8 +117,149 @@
                                 ?>
                                 <option value="0">No Category Found</option>
                                 <?php
-                            }
+                            } 
+                            // Start output buffering
+                            ob_start(); 
+                            
+                            include('partials/menu.php'); 
                             ?>
+                            
+                            <div class="main-content">
+                                <div class="wrapper">
+                                    <h1>Update Food</h1>
+                                    <br><br>
+                            
+                                    <?php
+                                    // Check whether the ID is set or not
+                                    if (isset($_GET['id'])) {
+                                        // Get the ID and all other details
+                                        $id = $_GET['id'];
+                            
+                                        // Create SQL Query to get all other details
+                                        $sql = "SELECT * FROM tbl_food WHERE id=$id";
+                                        // Execute the Query
+                                        $res = mysqli_query($conn, $sql);
+                            
+                                        // Count the Rows to check whether the id is valid or not
+                                        $count = mysqli_num_rows($res);
+                            
+                                        if ($count == 1) {
+                                            // Get all the data
+                                            $row = mysqli_fetch_assoc($res);
+                            
+                                            $title = $row['title'];
+                                            $description = $row['description'];
+                                            $price = $row['price'];
+                                            $current_image = $row['image_name'];
+                                            $current_category = $row['category_id'];
+                                            $featured = $row['featured'];
+                                            $active = $row['active'];
+                                        } else {
+                                            // Redirect to manage-food with session message
+                                            $_SESSION['no-food-found'] = "<div class='error'>Food not Found.</div>";
+                                            header('location:' . SITEURL . 'admin/manage-food.php');
+                                            exit(); // Stop further execution
+                                        }
+                                    } else {
+                                        // Redirect to Manage Food
+                                        header('location:' . SITEURL . 'admin/manage-food.php');
+                                        exit(); // Stop further execution
+                                    }
+                                    ?>
+                            
+                                    <form action="" method="POST" enctype="multipart/form-data">
+                                        <table class="tbl-30">
+                                            <!-- Your form fields -->
+                                        </table>
+                                    </form>
+                            
+                                    <?php
+                                    // Check whether the submit button is clicked or not
+                                    if (isset($_POST['submit'])) {
+                                        // Get all the details from the form
+                                        $id = $_POST['id'];
+                                        $title = $_POST['title'];
+                                        $description = $_POST['description'];
+                                        $price = $_POST['price'];
+                                        $category = $_POST['category'];
+                                        $featured = $_POST['featured'];
+                                        $active = $_POST['active'];
+                            
+                                        // Update the new image if selected
+                                        if (isset($_FILES['image']['name'])) {
+                                            $image_name = $_FILES['image']['name'];
+                            
+                                            if ($image_name != "") {
+                                                $temp = explode('.', $image_name);
+                                                $ext = end($temp);
+                                                $image_name = "Food_Name_" . rand(000, 999) . '.' . $ext;
+                            
+                                                $source_path = $_FILES['image']['tmp_name'];
+                                                $destination_path = "../image/food/" . $image_name;
+                            
+                                                $upload = move_uploaded_file($source_path, $destination_path);
+                            
+                                                if ($upload == false) {
+                                                    $_SESSION['upload'] = "<div class='error'>Failed to Upload New Image.</div>";
+                                                    header('location:' . SITEURL . 'admin/manage-food.php');
+                                                    exit(); // Stop further execution
+                                                }
+                            
+                                                if ($current_image != "") {
+                                                    $remove_path = "../image/food/" . $current_image;
+                                                    $remove = unlink($remove_path);
+                            
+                                                    if ($remove == false) {
+                                                        $_SESSION['failed-remove'] = "<div class='error'>Failed to Remove Current Image.</div>";
+                                                        header('location:' . SITEURL . 'admin/manage-food.php');
+                                                        exit(); // Stop further execution
+                                                    }
+                                                }
+                            
+                                            } else {
+                                                $image_name = $current_image;
+                                            }
+                            
+                                        } else {
+                                            $image_name = $current_image;
+                                        }
+                            
+                                        // Update the Database
+                                        $sql3 = "UPDATE tbl_food SET 
+                                            title = '$title',
+                                            description = '$description',
+                                            price = $price,
+                                            image_name = '$image_name',
+                                            category_id = $category,
+                                            featured = '$featured',
+                                            active = '$active'
+                                            WHERE id=$id
+                                        ";
+                            
+                                        // Execute the SQL Query
+                                        $res3 = mysqli_query($conn, $sql3);
+                            
+                                        if ($res3 == true) {
+                                            $_SESSION['update'] = "<div class='success'>Food Updated Successfully.</div>";
+                                            header('location:' . SITEURL . 'admin/manage-food.php');
+                                            exit(); // Stop further execution
+                                        } else {
+                                            $_SESSION['update'] = "<div class='error'>Failed to Update Food.</div>";
+                                            header('location:' . SITEURL . 'admin/manage-food.php');
+                                            exit(); // Stop further execution
+                                        }
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            
+                            <?php 
+                            // include('partials/footer.php'); 
+                            // End output buffering and flush output
+                            ob_end_flush(); 
+                            ?>
+                            
+                            
                         </select>
                     </td>
                 </tr>

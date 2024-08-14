@@ -38,8 +38,8 @@
                         } else {
                             //Image Available
                             ?>
-                            <img src="<?php echo SITEURL; ?>image/category/<?php echo $image_name; ?>" alt="Pizza"
-                                class="img-responsive img-curve">
+                            <a href=""><img src="<?php echo SITEURL; ?>image/category/<?php echo $image_name; ?>" alt="Pizza"
+                                class="img-responsive img-curve image"></a>
                             <?php
                         }
                         ?>

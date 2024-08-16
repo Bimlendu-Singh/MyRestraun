@@ -5,7 +5,7 @@
     <section class="food-search">
       <div class="container">
         <div class="search text-allign-center">
-          <form action="food-search.html" method="post">
+          <form action="<?php echo SITEURL; ?>food-search.php" method="post">
             <input
               class="search-box"
               type="search"

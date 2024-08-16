@@ -3,164 +3,106 @@
 
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-allign-center">
-      <div class="container">
-        <h2 style="color: yellow">
-          Foods on Your Search <a href="#" class="text-white">"Momo"</a>
-        </h2>
+      <div class="container overflow">
+
+      <?php 
+
+        //Get the Search Keyword
+        // $search = $_POST['search'];
+        $search = mysqli_real_escape_string($conn, $_POST['search']);
+
+        ?>
+
+
+        <h2 style="color: yellow">Foods on Your Search <a href="#" class="text-white">"<?php echo $search; ?>"</a></h2>
+
       </div>
     </section>
     <!-- fOOD sEARCH Section Ends Here -->
 
-    <!-- Food Menu Section Starts Here -->
+
+    <!-- fOOD MEnu Section Starts Here -->
     <section class="food-menu">
-      <div class="container overflow">
-        <h2 style="color: yellow" class="text-allign-center">Explore Food</h2>
+        <div class="container overflow">
+            <h2 style="color: yellow" class="text-allign-center">Food Menu</h2>
 
-        <!-- Food menu box html starts and overflow class included to control the overflow of div -->
-        <div class="food-menu-box overflow">
-          <!-- Adding image in food menu and including img-responsive class -->
-          <div class="food-menu-img">
-            <img
-              class="img-responsive img-curve"
-              src="./image/menu-pizza.jpg"
-              alt="Veg Pizza"
-            />
-          </div>
+            <?php 
 
-          <!-- Adding food menu description including title, price, and small desc -->
-          <div class="food-menu-desc">
-            <h4>Italian Pizza</h4>
-            <p class="food-price">Rs250</p>
-            <p class="food-details">Italian Pizza made with italian sauce</p>
-            <br />
+                //SQL Query to Get foods based on search keyword
+                //$search = burger '; DROP database name;
+                // "SELECT * FROM tbl_food WHERE title LIKE '%burger'%' OR description LIKE '%burger%'";
+                $sql = "SELECT * FROM tbl_food WHERE title LIKE '%$search%' OR description LIKE '%$search%'";
 
-            <!-- Adding a button for buy now -->
-            <a class="btn btn-primary" href="#">Buy Now</a>
-          </div>
-        </div>
+                //Execute the Query
+                $res = mysqli_query($conn, $sql);
 
-        <!-- Food menu box html starts and overflow class included to control the overflow of div -->
-        <div class="food-menu-box overflow">
-          <!-- Adding image in food menu and including img-responsive class -->
-          <div class="food-menu-img">
-            <img
-              class="img-responsive img-curve"
-              src="./image/menu-burger.jpg"
-              alt="Veg Burger"
-            />
-          </div>
+                //Count Rows
+                $count = mysqli_num_rows($res);
 
-          <!-- Adding food menu description including title, price, and small desc -->
-          <div class="food-menu-desc">
-            <h4>Indian Burger</h4>
-            <p class="food-price">Rs120</p>
-            <p class="food-details">
-              Indian Burger made with special Indian Spices
-            </p>
-            <br />
+                //Check whether food available of not
+                if($count>0)
+                {
+                    //Food Available
+                    while($row=mysqli_fetch_assoc($res))
+                    {
+                        //Get the details
+                        $id = $row['id'];
+                        $title = $row['title'];
+                        $price = $row['price'];
+                        $description = $row['description'];
+                        $image_name = $row['image_name'];
+                        ?>
 
-            <!-- Adding a button for buy now -->
-            <a class="btn btn-primary" href="#">Buy Now</a>
-          </div>
-        </div>
+                        <div class="food-menu-box overflow">
+                            <div class="food-menu-img">
+                                <?php 
+                                    // Check whether image name is available or not
+                                    if($image_name=="")
+                                    {
+                                        //Image not Available
+                                        echo "<div class='error'>Image not Available.</div>";
+                                    }
+                                    else
+                                    {
+                                        //Image Available
+                                        ?>
+                                        <img src="<?php echo SITEURL; ?>image/food/<?php echo $image_name; ?>" alt="Chicke Hawain Pizza" 
+                                        class="img-responsive img-curve">
+                                        <?php 
 
-        <!-- Food menu box html starts and overflow class included to control the overflow of div -->
-        <div class="food-menu-box overflow">
-          <!-- Adding image in food menu and including img-responsive class -->
-          <div class="food-menu-img">
-            <img
-              class="img-responsive img-curve"
-              src="./image/menu-burger.jpg"
-              alt="South Indian Burger"
-            />
-          </div>
+                                    }
+                                ?>
+                                
+                            </div>
 
-          <!-- Adding food menu description including title, price, and small desc -->
-          <div class="food-menu-desc">
-            <h4>South Indian Burger</h4>
-            <p class="food-price">Rs150</p>
-            <p class="food-details">
-              South Indian Burger made with south indian spices
-            </p>
-            <br />
+                            <div class="food-menu-desc">
+                                <h4><?php echo $title; ?></h4>
+                                <p class="food-price">$<?php echo $price; ?></p>
+                                <p class="food-details">
+                                    <?php echo $description; ?>
+                                </p>
+                                <br>
 
-            <!-- Adding a button for buy now -->
-            <a class="btn btn-primary" href="#">Buy Now</a>
-          </div>
-        </div>
+                                <a href="#" class="btn btn-primary">Order Now</a>
+                            </div>
+                        </div>
 
-        <!-- Food menu box html starts and overflow class included to control the overflow of div -->
-        <div class="food-menu-box overflow">
-          <!-- Adding image in food menu and including img-responsive class -->
-          <div class="food-menu-img">
-            <img
-              class="img-responsive img-curve"
-              src="./image/menu-momo.jpg"
-              alt="Momo"
-            />
-          </div>
+                        <?php
+                    }
+                }
+                else
+                {
+                    //Food Not Available
+                    echo "<div class='error'>Food not found.</div>";
+                }
+            
+            ?>
 
-          <!-- Adding food menu description including title, price, and small desc -->
-          <div class="food-menu-desc">
-            <h4>Momo</h4>
-            <p class="food-price">Rs150</p>
-            <p class="food-details">
-              Momo made with napali's special techniques
-            </p>
-            <br />
 
-            <!-- Adding a button for buy now -->
-            <a class="btn btn-primary" href="#">Buy Now</a>
-          </div>
-        </div>
 
-        <!-- Food menu box html starts and overflow class included to control the overflow of div -->
-        <div class="food-menu-box overflow">
-          <!-- Adding image in food menu and including img-responsive class -->
-          <div class="food-menu-img">
-            <img
-              class="img-responsive img-curve"
-              src="./image/menu-momo.jpg"
-              alt="Momo"
-            />
-          </div>
 
-          <!-- Adding food menu description including title, price, and small desc -->
-          <div class="food-menu-desc">
-            <h4>Indian Momo</h4>
-            <p class="food-price">Rs180</p>
-            <p class="food-details">Chef's Special Momo</p>
-            <br />
 
-            <!-- Adding a button for buy now -->
-            <a class="btn btn-primary" href="#">Buy Now</a>
-          </div>
-        </div>
 
-        <!-- Food menu box html starts and overflow class included to control the overflow of div -->
-        <div class="food-menu-box overflow">
-          <!-- Adding image in food menu and including img-responsive class -->
-          <div class="food-menu-img">
-            <img
-              class="img-responsive img-curve"
-              src="./image/menu-pizza.jpg"
-              alt="Veg Pizza"
-            />
-          </div>
-
-          <!-- Adding food menu description including title, price, and small desc -->
-          <div class="food-menu-desc">
-            <h4>Indian Pizza</h4>
-            <p class="food-price">Rs300</p>
-            <p class="food-details">
-              Pizza made with special indian spices and with extra cheese
-            </p>
-            <br />
-
-            <!-- Adding a button for buy now -->
-            <a class="btn btn-primary" href="#">Buy Now</a>
-          </div>
-        </div>
       </div>
     </section>
     <!-- Food Menu Section Ends Here -->

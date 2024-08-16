@@ -42,6 +42,15 @@
   color: yellowgreen;
 }
 
+.error{
+  padding: 2%;
+  color: red;
+}
+.success{
+  padding: 2%;
+  color: green;
+}
+
 /* Stylel for responsive image */
 .img-responsive {
   width: 100%;

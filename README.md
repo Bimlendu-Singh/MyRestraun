@@ -28,3 +28,25 @@ Welcome to **MyRestraun**, a beautifully crafted online restaurant management sy
 
 The project structure is organized as follows:
 
+```plaintext
+myrestraun/
+├── admin/
+│   ├── add-food.php
+│   ├── delete-food.php
+│   ├── update-food.php
+│   └── ...
+├── css/
+│   ├── admin.css
+│   └── style.css
+├── image/
+│   ├── logo/
+│   ├── food/
+│   └── ...
+├── config/
+│   ├── constants.php
+│   └── ...
+├── index.php
+├── contact.php
+├── foods.php
+└── ...
+
